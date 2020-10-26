@@ -1,0 +1,3 @@
+com\gabriel\api\domain\User.class
+com\gabriel\api\resources\UserResource.class
+com\gabriel\api\ApiRestMongodbApplication.class
