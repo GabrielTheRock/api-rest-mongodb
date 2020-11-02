@@ -1,5 +1,6 @@
 package com.gabriel.api.domain;
 
+import com.gabriel.api.dto.AuthorDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class Post implements Serializable {
 
     @Id
     private String id;
-    public User author;
+    public AuthorDTO author;
     private Date date;
     private String title;
     private String body;
