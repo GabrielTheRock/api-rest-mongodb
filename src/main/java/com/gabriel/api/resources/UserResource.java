@@ -1,18 +1,17 @@
 package com.gabriel.api.resources;
 
-import java.net.URI;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.gabriel.api.domain.Post;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import com.gabriel.api.domain.User;
 import com.gabriel.api.dto.UserDTO;
 import com.gabriel.api.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /*
  * RestController é a camada mais externa da API.
@@ -33,7 +32,7 @@ public class UserResource {
 	@GetMapping
 	public ResponseEntity<List<UserDTO>> findAll() {
 		List<User> list = service.findAll();
-		List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		List<UserDTO> listDto = list.stream().map(UserDTO::new).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
 	
