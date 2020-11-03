@@ -22,7 +22,7 @@ public class Post implements Serializable {
 
     @Id
     private String id;
-    public AuthorDTO author;
+    private AuthorDTO author;
     private Date date;
     private String title;
     private String body;
