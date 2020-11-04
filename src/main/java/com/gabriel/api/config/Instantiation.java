@@ -3,6 +3,7 @@ package com.gabriel.api.config;
 import com.gabriel.api.domain.Post;
 import com.gabriel.api.domain.User;
 import com.gabriel.api.dto.AuthorDTO;
+import com.gabriel.api.dto.CommentDTO;
 import com.gabriel.api.repository.PostRepository;
 import com.gabriel.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,13 @@ public class Instantiation implements CommandLineRunner {
 
 		Post post1 = new Post(null, new AuthorDTO(gabriel), sdf.parse("21/03/2018"), "Partiu viagem", "Fui, abraços!");
 		Post post2 = new Post(null, new AuthorDTO(gabriel), sdf.parse("15/06/2019"), "Novos desafios", "Novo trampo, novas oportunidades!");
+
+		CommentDTO c1 = new CommentDTO(new AuthorDTO(vinicius), "Aí sim, heim!", sdf.parse("04/11/2020"));
+		CommentDTO c2 = new CommentDTO(new AuthorDTO(vinicius), "Top.", sdf.parse("07/10/2020"));
+		CommentDTO c3 = new CommentDTO(new AuthorDTO(goes), "Isso aí, voa!", sdf.parse("21/09/2020"));
+
+		post1.getComments().addAll(Arrays.asList(c1, c2));
+		post2.getComments().add(c3);
 
 		postRepository.saveAll(Arrays.asList(post1, post2));
 
