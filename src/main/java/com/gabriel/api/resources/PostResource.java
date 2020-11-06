@@ -27,6 +27,10 @@ public class PostResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	/*
+	 * Aqui, é feita uma consulta por título na API. Para isso, é preciso receber o texto no endpoint /titlesearch
+	 * Logo depois de um "?", é colocada a string a ser usada para consultar. Ela precisa ser decodificada para UTF-8.
+	 */
 	@GetMapping(value="/titlesearch")
 	public ResponseEntity<List<Post>> findByTitle(@RequestParam(value="text", defaultValue="") String text) {
 		text = URL.decodeParam(text);
