@@ -1,6 +1,8 @@
 # API Rest
 API Rest made using Spring Boot with MongoDB.
 
+This API stores data about users, their posts and the comments of their posts.
+
 # Endpoints
 
 /users --> return all users
